@@ -1,6 +1,6 @@
-<?php namespace App\Http\Requests\Auth;
+<?php namespace Orbis\Http\Requests\Auth;
 
-use App\Http\Requests\Request;
+use Orbis\Http\Requests\Request;
 
 class LoginRequest extends Request {
 

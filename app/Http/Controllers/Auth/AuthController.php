@@ -1,8 +1,8 @@
-<?php namespace App\Http\Controllers\Auth;
+<?php namespace Orbis\Http\Controllers\Auth;
 
-use App\User;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Orbis\User;
+use Orbis\Http\Requests;
+use Orbis\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 
 class AuthController extends Controller {

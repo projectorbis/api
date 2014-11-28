@@ -78,7 +78,7 @@ return [
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'vH3DtBGmhW6VJyTbc0YzgAIZ4rIl9AZ1',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -113,9 +113,9 @@ return [
 		/*
 		 * Application Service Providers...
 		 */
-		'App\Providers\AppServiceProvider',
-		'App\Providers\EventServiceProvider',
-		'App\Providers\RouteServiceProvider',
+		'Orbis\Providers\AppServiceProvider',
+		'Orbis\Providers\EventServiceProvider',
+		'Orbis\Providers\RouteServiceProvider',
 
 		/*
 		 * Laravel Framework Service Providers...
