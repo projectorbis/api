@@ -18,7 +18,7 @@ class CreatePlayersTable extends Migration {
 			$table->string('firstname', 100);
 			$table->string('lastname', 100);
 			$table->string('nickname', 100);
-			$table->enum('choices', array('M', 'F'));
+			$table->enum('gender', array('M', 'F'));
 			$table->date('birthdate');
 			$table->smallInteger('countryId')->unsigned();
 			$table->smallInteger('teamId')->unsigned();
