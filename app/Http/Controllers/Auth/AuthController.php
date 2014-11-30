@@ -1,6 +1,6 @@
 <?php namespace Orbis\Http\Controllers\Auth;
 
-use Orbis\User;
+use Orbis\Models\User;
 use Orbis\Http\Requests;
 use Orbis\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
