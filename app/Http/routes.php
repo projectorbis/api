@@ -12,7 +12,7 @@
 */
 
 $router->resource('country', 'CountryController', ['only' => ['index', 'show']]);
-$router->resource('player', 'PlayerController', ['only' => ['index', 'show']]);
+// $router->resource('player', 'PlayerController', ['only' => ['index', 'show']]);
 
 
 

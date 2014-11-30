@@ -14,6 +14,10 @@ class RouteServiceProvider extends ServiceProvider {
 	 */
 	protected $namespace = 'Orbis\Http\Controllers';
 
+	protected $scan = [
+	    'Orbis\Http\Controllers\PlayerController',
+	 ];
+
 	/**
 	 * Define your route model bindings, pattern filters, etc.
 	 *

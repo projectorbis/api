@@ -1,9 +1,14 @@
-<?php namespace Orbis\Http\Controllers;
+<?php
+
+namespace Orbis\Http\Controllers;
 
 use Orbis\Http\Requests;
 use Orbis\Models\Player;
 use Orbis\Http\Controllers\Controller;
 
+/**
+ * @Resource("player", only={"index", "show"})
+ */
 class PlayerController extends Controller {
 
 	/**
@@ -38,7 +43,8 @@ class PlayerController extends Controller {
 
 	/**
 	 * Display the specified resource.
-	 *
+     *
+     * @Where({"id": "^\d+$"})
 	 * @param  int  $id
 	 * @return Response
 	 */

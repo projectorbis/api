@@ -1,6 +1,7 @@
 <?php namespace Orbis\Http;
 
 use Exception;
+use Orbis\Exceptions\RateLimitException;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel {
@@ -12,6 +13,7 @@ class Kernel extends HttpKernel {
      */
     protected $middleware = [
         'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
+        'Orbis\Http\Middleware\RateLimitMiddleware',
         // 'Illuminate\Cookie\Middleware\EncryptCookies',
         // 'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
         // 'Illuminate\Session\Middleware\StartSession',

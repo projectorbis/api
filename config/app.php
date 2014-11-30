@@ -121,6 +121,7 @@ return [
 		 * 3rd Party Service Providers...
 		 */
 		'Way\Generators\GeneratorsServiceProvider',
+		'GrahamCampbell\Throttle\ThrottleServiceProvider',
 
 		/*
 		 * Laravel Framework Service Providers...
@@ -203,6 +204,8 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+
+		'Throttle' => 'GrahamCampbell\Throttle\Facades\Throttle',
 
 	],
 
