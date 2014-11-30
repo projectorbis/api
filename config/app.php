@@ -118,6 +118,11 @@ return [
 		'Orbis\Providers\RouteServiceProvider',
 
 		/*
+		 * 3rd Party Service Providers...
+		 */
+		'Way\Generators\GeneratorsServiceProvider',
+
+		/*
 		 * Laravel Framework Service Providers...
 		 */
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
