@@ -23,7 +23,7 @@ return [
 		'mysql' => [
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'homestead',
+			'database'  => 'orbis',
 			'username'  => 'homestead',
 			'password'  => 'secret',
 			'charset'   => 'utf8',
@@ -34,7 +34,7 @@ return [
 		'pgsql' => [
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
-			'database' => 'homestead',
+			'database' => 'orbis',
 			'username' => 'homestead',
 			'password' => 'secret',
 			'charset'  => 'utf8',
