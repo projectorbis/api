@@ -14,10 +14,14 @@ class CreateTournamentsTable extends Migration {
 	{
 		Schema::create('tournaments', function(Blueprint $table)
 		{
-			$table->bigIncrements('id')->unsigned();
+			$table->bigIncrements('id')
+				  ->unsigned();
 			$table->string('name');
 			$table->date('date');
-			$table->bigInteger('parentTournament')->unsigned();
+			$table->bigInteger('parentTournament')
+			      ->unsigned()
+			      ->nullable()
+			      ->defaul(null);
 			$table->timestamp('createdAt');
 			$table->timestamp('updatedAt');
 		});

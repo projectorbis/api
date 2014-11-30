@@ -14,9 +14,12 @@ class CreateRoundPlayersTable extends Migration {
 	{
 		Schema::create('round_players', function(Blueprint $table)
 		{
-			$table->bigIncrements('id')->unsigned();
-			$table->bigInteger('roundId')->unsigned();
-			$table->bigInteger('playerId')->unsigned();
+			$table->bigIncrements('id')
+			      ->unsigned();
+			$table->bigInteger('roundId')
+			      ->unsigned();
+			$table->bigInteger('playerId')
+			      ->unsigned();
 			$table->timestamp('createdAt');
 			$table->timestamp('updatedAt');
 		});

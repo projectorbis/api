@@ -14,11 +14,27 @@ class CreateHolesTable extends Migration {
 	{
 		Schema::create('holes', function(Blueprint $table)
 		{
-			$table->bigIncrements('id')->unsigned();
-			$table->tinyInteger('par')->unsigned();
+			$table->bigIncrements('id')
+			      ->unsigned();
+			$table->tinyInteger('par')
+			      ->unsigned()
+			      ->default(3);
 			$table->string('name', 100);
-			$table->float('distance');
-			$table->float('elevation');
+			$table->float('distance', 5, 2)
+				  ->nullable()
+				  ->default(null);
+			$table->float('relativeElevation', 6, 2)
+				  ->nullable()
+				  ->default(null);
+			$table->float('geoElevation' 6, 2)
+				  ->nullable()
+				  ->default(null);
+			$table->float('geoLatitude', 8, 6)
+				  ->nullable()
+				  ->default(null);
+			$table->float('geoLongitude', 9, 6)
+				  ->nullable()
+				  ->default(null);
 			$table->timestamp('createdAt');
 			$table->timestamp('updatedAt');
 		});

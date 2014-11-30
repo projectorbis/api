@@ -5,6 +5,7 @@ namespace Orbis\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class BaseModel extends Model {
+
     /**
      * {@inheritdoc}
      */
@@ -14,4 +15,9 @@ class BaseModel extends Model {
      * {@inheritdoc}
      */
     const UPDATED_AT = 'updatedAt';
+
+    /**
+     * {@inheritdoc}
+     */
+    public static $snakeAttributes = false;
 }
