@@ -20,6 +20,15 @@ class Handler extends ExceptionHandler {
 		parent::__construct($log);
 		$this->responseFactory = $responseFactory;
 	}
+
+	 * A list of the exception types that should not be reported.
+	 *
+	 * @var array
+	 */
+	protected $dontReport = [
+		'Symfony\Component\HttpKernel\Exception\HttpException'
+	];
+
 	/**
 	 * Report or log an exception.
 	 *
@@ -34,7 +43,7 @@ class Handler extends ExceptionHandler {
 	}
 
 	/**
-	 * Render an exception into a response.
+	 * Render an exception into an HTTP response.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @param  \Exception  $e
@@ -42,11 +51,15 @@ class Handler extends ExceptionHandler {
 	 */
 	public function render($request, Exception $e)
 	{
-		if ($e instanceof TooManyRequestsHttpException) {
-			return $this->responseFactory->json([$e->getMessage()], $e->getStatusCode(), $e->getHeaders());
-		}
+		// if ($e instanceof TooManyRequestsHttpException) {
+		// 	return $this->responseFactory->json([$e->getMessage()], $e->getStatusCode(), $e->getHeaders());
+		// }
 
-		return parent::render($request, $e);
+		if ($this->isHttpException($e)) {
+			return $this->renderHttpException($e);
+		} else {
+			return parent::render($request, $e);
+		}
 	}
 
 }
