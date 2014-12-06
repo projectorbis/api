@@ -41,18 +41,24 @@ class RateLimitMiddleware implements Middleware {
 	public function handle($request, Closure $next)
 	{
 		// TODO: Move to config
-		$limit = 60;
+		$limit = 6000;
 		$time  = 60;
+		
+		$throttle = $this->throttle->attempt($request, $limit, $time);
+		$remaining = $limit - $this->throttle->count($request);
 
-		if (false === $this->throttle->attempt($request, $limit, $time)) {
+		$headers = [
+			'X-RateLimit-Limit' => $limit,
+			'X-RateLimit-Remaining' => $remaining > 0 ? $remaining : 0,
+		];
+
+		if (false === $throttle) {
 			throw new TooManyRequestsHttpException($time * 60, 'Rate limit exceed.');
 		}
 
 		$response = $next($request);
 
-		$remaining = $limit - $this->throttle->count($request);
-		$response->headers->set('X-RateLimit-Limit', $limit);
-		$response->headers->set('X-RateLimit-Remaining', $remaining > 0 ? $remaining : 0);
+		$response->headers->add($headers);
 		// TODO: Reqrite rate limiter to support reset time display
 		// $response->headers->set('X-RateLimit-Reset', 5);
 

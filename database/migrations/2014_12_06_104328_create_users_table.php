@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoundsTable extends Migration {
+class CreateUsersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,16 @@ class CreateRoundsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('rounds', function(Blueprint $table)
+		Schema::create('users', function(Blueprint $table)
 		{
 			$table->bigIncrements('id')
 			      ->unsigned();
-			$table->string('name');
-			$table->datetime('time');
-			$table->bigInteger('courseId')
-			      ->unsigned();
+			$table->string('login', 100)
+			      ->unique();
+			$table->string('email', 255);
+			$table->string('password', 60);
+			$table->string('remeberToken', 100)
+			      ->null();
 			$table->timestamp('createdAt');
 			$table->timestamp('updatedAt');
 		});
@@ -32,6 +34,7 @@ class CreateRoundsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('rounds');
+		Schema::drop('users');
 	}
+
 }

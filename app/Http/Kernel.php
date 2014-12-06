@@ -31,4 +31,15 @@ class Kernel extends HttpKernel {
         // 'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
         // 'guest'      => 'Orbis\Http\Middleware\RedirectIfAuthenticated',
     ];
+/*
+    public function handle($request)
+    {
+        try {
+            return $this->sendRequestThroughRouter($request);
+        } catch (TooManyRequestsHttpException $e) {
+            var_dump($e);
+            die;
+        }
+    }
+*/
 }

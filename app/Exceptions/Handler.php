@@ -1,10 +1,25 @@
 <?php namespace Orbis\Exceptions;
 
 use Exception;
+use Psr\Log\LoggerInterface;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 
 class Handler extends ExceptionHandler {
 
+	/**
+	 * Create a new exception handler instance.
+	 *
+	 * @param  \Psr\Log\LoggerInterface                      $log
+	 * @param  \Illuminate\Contracts\Routing\ResponseFactory $responseFactory
+	 * @return void
+	 */
+	public function __construct(LoggerInterface $log, ResponseFactory $responseFactory)
+	{
+		parent::__construct($log);
+		$this->responseFactory = $responseFactory;
+	}
 	/**
 	 * Report or log an exception.
 	 *
@@ -27,6 +42,10 @@ class Handler extends ExceptionHandler {
 	 */
 	public function render($request, Exception $e)
 	{
+		if ($e instanceof TooManyRequestsHttpException) {
+			return $this->responseFactory->json([$e->getMessage()], $e->getStatusCode(), $e->getHeaders());
+		}
+
 		return parent::render($request, $e);
 	}
 

@@ -50,7 +50,7 @@ class PlayerController extends Controller {
 	 */
 	public function show($id)
 	{
-		return Player::find($id)->toJson();
+		return Player::findOrFail($id)->toJson();
 	}
 
 	/**

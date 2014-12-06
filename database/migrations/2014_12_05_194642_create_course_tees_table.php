@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHolesTable extends Migration {
+class CreateCourseTeesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,22 +12,22 @@ class CreateHolesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('holes', function(Blueprint $table)
+		Schema::create('tees', function(Blueprint $table)
 		{
 			$table->bigIncrements('id')
 			      ->unsigned();
-			$table->bigInteger('parkId')
+			$table->bigInteger('holeId')
 			      ->unsigned();
 			$table->string('name', 100);
-			$table->float('geoElevation', 6, 2)
-				  ->nullable()
-				  ->default(null);
-			$table->float('geoLatitude', 8, 6)
-				  ->nullable()
-				  ->default(null);
-			$table->float('geoLongitude', 9, 6)
-				  ->nullable()
-				  ->default(null);
+			$table->tinyInteger('par')
+			      ->unsigned()
+			      ->default(3);
+			$table->float('distance', 5, 2)
+			      ->nullable()
+			      ->default(null);
+			$table->float('relativeElevation', 6, 2)
+			      ->nullable()
+			      ->default(null);
 			$table->timestamp('createdAt');
 			$table->timestamp('updatedAt');
 		});
@@ -40,6 +40,7 @@ class CreateHolesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('holes');
+		Schema::drop('tees');
 	}
+
 }

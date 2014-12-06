@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoundsTable extends Migration {
+class CreateParksTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,13 @@ class CreateRoundsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('rounds', function(Blueprint $table)
+		Schema::create('parks', function(Blueprint $table)
 		{
 			$table->bigIncrements('id')
 			      ->unsigned();
 			$table->string('name');
-			$table->datetime('time');
-			$table->bigInteger('courseId')
-			      ->unsigned();
+			$table->smallInteger('countryId')
+                  ->unsigned();
 			$table->timestamp('createdAt');
 			$table->timestamp('updatedAt');
 		});
@@ -32,6 +31,7 @@ class CreateRoundsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('rounds');
+		Schema::drop('parks');
 	}
+
 }
