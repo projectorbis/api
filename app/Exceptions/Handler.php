@@ -21,6 +21,7 @@ class Handler extends ExceptionHandler {
 		$this->responseFactory = $responseFactory;
 	}
 
+	/**
 	 * A list of the exception types that should not be reported.
 	 *
 	 * @var array
