@@ -14,7 +14,7 @@
 	},
 	"autoload": {
 		"classmap": [
-			"database",
+			"resources/database",
 			"tests/TestCase.php"
 		],
 		"psr-4": {
@@ -24,8 +24,6 @@
 	"scripts": {
 		"post-install-cmd": [
 			"php artisan clear-compiled",
-			"php artisan route:scan",
-			"php artisan event:scan",
 			"php artisan optimize"
 		],
 		"post-update-cmd": [
