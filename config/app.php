@@ -95,7 +95,7 @@ return [
 	|
 	*/
 
-	'log' => 'syslog',
+	'log' => 'single',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -120,7 +120,7 @@ return [
 		/*
 		 * 3rd Party Service Providers...
 		 */
-		'Way\Generators\GeneratorsServiceProvider',
+		// 'Way\Generators\GeneratorsServiceProvider',
 		'GrahamCampbell\Throttle\ThrottleServiceProvider',
 
 		/*

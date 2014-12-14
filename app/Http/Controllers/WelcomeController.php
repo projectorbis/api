@@ -15,19 +15,7 @@ class WelcomeController extends Controller {
      */
     public function index()
     {
-        // $tournament = Tournament::where('id', 3)
-        //                         ->with('rounds', 'childTournaments', 'parentTournament')
-        //                         ->get()
-        //                         ->toJson();
-
-        // return $tournament;
-
-        $round = Round::where('id', 2)
-                      ->with('tournaments', 'holes', 'players', 'players.country')
-                      ->get()
-                      ->toJson();
-
-        return $round;
+        return 'hello World';
     }
 
 }

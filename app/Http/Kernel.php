@@ -10,8 +10,8 @@ class Kernel extends HttpKernel {
      * @var array
      */
     protected $middleware = [
-        'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
-        'Orbis\Http\Middleware\RateLimitMiddleware',
+        // 'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
+        // 'Orbis\Http\Middleware\RateLimitMiddleware',
     ];
 
     /**
