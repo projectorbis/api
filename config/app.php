@@ -150,7 +150,6 @@ return [
                  * 3rd Party Service Providers...
                  */
                 // 'Way\Generators\GeneratorsServiceProvider',
-                'GrahamCampbell\Throttle\ThrottleServiceProvider',
 
 	],
 
