@@ -11,23 +11,10 @@
 |
 */
 
-$router->resource('country', 'CountryController', ['only' => ['index', 'show']]);
-// $router->resource('player', 'PlayerController', ['only' => ['index', 'show']]);
+Route::resource('country', 'CountryController', ['only' => ['index', 'show']]);
+Route::get('/', 'WelcomeController@index');
 
-$router->get('/', 'WelcomeController@index');
-
-/*
-|--------------------------------------------------------------------------
-| Authentication & Password Reset Controllers
-|--------------------------------------------------------------------------
-|
-| These two controllers handle the authentication of the users of your
-| application, as well as the functions necessary for resetting the
-| passwords for your users. You may modify or remove these files.
-|
-*/
-
-// $router->controllers([
-//     'auth'     => 'Auth\AuthController',
-//     'password' => 'Auth\PasswordController',
-// ]);
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
